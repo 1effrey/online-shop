@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>femmes.fb | Accessories</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Keep your existing styles or add minimal for button alignment */
+    .product {
+      text-align: center;
+      background: #fff;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .btn, button {
+      background: #e91e63;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1em;
+      margin-top: 10px;
+    }
+    button:hover, .btn:hover {
+      background: #c2185b;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>femmes.fb</h1>
+    <p>Trendy Accessories, Cash on Delivery</p>
+    <a href="cart.html" class="btn">Go to Cart</a>
+  </header>
+
+  <main class="product-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:20px;padding:20px;">
+    <div class="product">
+      <img src="images/earrings.jpg" alt="Earrings" style="width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:10px"/>
+      <h3>Earrings</h3>
+      <p>$10</p>
+      <button class="add-to-cart-btn" data-name="Earrings" data-price="10">Add to Cart</button>
+    </div>
+    <div class="product">
+      <img src="images/Hand Bracelet.jpg" alt="Hand Bracelet" style="width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:10px"/>
+      <h3>Hand Bracelet</h3>
+      <p>$15</p>
+      <button class="add-to-cart-btn" data-name="Hand Bracelet" data-price="15">Add to Cart</button>
+    </div>
+    <div class="product">
+      <img src="images/rings.jpg" alt="Rings" style="width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:10px"/>
+      <h3>Rings</h3>
+      <p>$6</p>
+      <button class="add-to-cart-btn" data-name="Rings" data-price="6">Add to Cart</button>
+    </div>
+
+    <!-- Additional 6 products -->
+    <div class="product">
+      <img src="images/Phone Stand.jpg" alt="Phone Stand" style="width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:10px"/>
+      <h3>Phone Stand</h3>
+      <p>$8</p>
+      <button class="add-to-cart-btn" data-name="Phone Stand" data-price="8">Add to Cart</button>
+    </div>
+    <div class="product">
+      <img src="images/smartwatch band.jpg" alt="Smartwatch Band" style="width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:10px"/>
+      <h3>Smartwatch Band</h3>
+      <p>$12</p>
+      <button class="add-to-cart-btn" data-name="Smartwatch Band" data-price="12">Add to Cart</button>
+    </div>
+    <div class="product">
+      <img src="images/bluetooth earbuds.jpg" alt="Bluetooth Earbuds" style="width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:10px"/>
+      <h3>Bluetooth Earbuds</h3>
+      <p>$25</p>
+      <button class="add-to-cart-btn" data-name="Bluetooth Earbuds" data-price="25">Add to Cart</button>
+    </div>
+    <div class="product">
+      <img src="images/power bank.jpg" alt="Power Bank" style="width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:10px"/>
+      <h3>Power Bank</h3>
+      <p>$20</p>
+      <button class="add-to-cart-btn" data-name="Power Bank" data-price="20">Add to Cart</button>
+    </div>
+    <div class="product">
+      <img src="images/phone ring holder.jpg" alt="Phone Ring Holder" style="width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:10px"/>
+      <h3>Phone Ring Holder</h3>
+      <p>$7</p>
+      <button class="add-to-cart-btn" data-name="Phone Ring Holder" data-price="7">Add to Cart</button>
+    </div>
+  </main>
+
+  <footer style="text-align:center;padding:15px;background:#fce4ec;color:#333;">
+    <p>&copy; 2025 femmes.fb | All rights reserved</p>
+  </footer>
+
+  <script>
+    // Add to cart function storing data in localStorage
+    document.querySelectorAll('.add-to-cart-btn').forEach(button => {
+      button.addEventListener('click', () => {
+        const name = button.getAttribute('data-name');
+        const price = parseFloat(button.getAttribute('data-price'));
+        
+        // Get existing cart or empty object
+        let cart = JSON.parse(localStorage.getItem('femmesCart')) || {};
+        
+        if(cart[name]) {
+          cart[name].quantity += 1;
+        } else {
+          cart[name] = { price: price, quantity: 1 };
+        }
+        
+        localStorage.setItem('femmesCart', JSON.stringify(cart));
+      });
+    });
+  </script>
+</body>
+</html>
+
+</script>
